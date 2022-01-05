@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/header_tani" />
+
+
+    <LinearLayout
+        android:id="@+id/frame1"
+        android:layout_width="match_parent"
+        android:layout_height="226dp"
+        android:layout_weight="0"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/arial"
+            android:text="Daily Exercises"
+            android:textSize="21dp"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/dash" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button2"
+            android:layout_width="293dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/begin_tan"
+            tools:ignore="SpeakableTextPresentCheck"
+            tools:layout_editor_absoluteX="36.5px"
+            tools:layout_editor_absoluteY="68dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="226dp"
+        android:layout_weight="0"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/arial"
+            android:text="Train with virtual Assistant"
+            android:textSize="21dp"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/dash" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button4"
+            android:layout_width="293dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/adobe"
+
+            tools:layout_editor_absoluteX="36.5px"
+            tools:layout_editor_absoluteY="68dp" />
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
