@@ -47,6 +47,8 @@ import android.view.*
 import androidx.core.graphics.withRotation
 
 import android.graphics.Point
+import org.tensorflow.lite.examples.poseestimation.VisualizationUtils
+import org.tensorflow.lite.examples.poseestimation.VisualizationUtils.getTotalPoseError
 
 
 class MainActivity : AppCompatActivity() {
@@ -185,7 +187,7 @@ class MainActivity : AppCompatActivity() {
 
             // Create rotated version for portrait display
             val rotateMatrix = Matrix()
-            rotateMatrix.postRotate(270.0f)
+            rotateMatrix.postRotate(0.0f)
 
             val rotatedBitmap = Bitmap.createBitmap(
                 imageBitmap!!, 0, 0, previewWidth, previewHeight,
@@ -225,6 +227,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+//        setContentView(R.layout.new_activity_main)
         // keep screen on while app is running
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
@@ -239,6 +242,7 @@ class MainActivity : AppCompatActivity() {
         initSpinner()
         requestPermission()
     }
+
 
     override fun onStart() {
         super.onStart()
@@ -490,6 +494,10 @@ class MainActivity : AppCompatActivity() {
             score = person.score
             if (score > minConfidence) {
                 outputBitmap = drawBodyKeypoints(bitmap, person)
+                var poseError = getTotalPoseError()
+                if (poseError > 0.3){
+
+                }
             }
         }
 

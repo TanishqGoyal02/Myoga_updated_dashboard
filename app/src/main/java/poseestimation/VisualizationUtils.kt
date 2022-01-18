@@ -9,12 +9,12 @@ import org.tensorflow.lite.examples.poseestimation.data.Person
 import kotlin.math.*
 
 object VisualizationUtils {
+
     /** Radius of circle used to draw keypoints.  */
     private const val CIRCLE_RADIUS = 10f
 
     /** Width of line used to connected two keypoints.  */
     private const val LINE_WIDTH = 10f
-
     /** Pair of keypoints to draw lines between.  */
     private val bodyJoints = listOf(
         Pair(BodyPart.NOSE, BodyPart.LEFT_EYE),
@@ -36,6 +36,9 @@ object VisualizationUtils {
         Pair(BodyPart.RIGHT_HIP, BodyPart.RIGHT_KNEE),
         Pair(BodyPart.RIGHT_KNEE, BodyPart.RIGHT_ANKLE)
     )
+    private var poseError = 0.0
+    private var totalPercentError = 0.0
+
     private val bodyAngles = listOf(
         Pair(Pair(BodyPart.LEFT_ELBOW, BodyPart.LEFT_WRIST),
             Pair(BodyPart.LEFT_SHOULDER, BodyPart.LEFT_ELBOW)),
@@ -66,8 +69,8 @@ object VisualizationUtils {
 
     // Draw line and point indicate body pose
 
+
     fun drawBodyKeypoints(input: Bitmap, person: Person): Bitmap {
-        var totalError: Double = 0.0
          val pText = Paint()
         pText.color = Color.RED
         val paintCircle = Paint().apply {
@@ -118,6 +121,8 @@ object VisualizationUtils {
             angles[it.first.first.position] = number2digits
             var error = abs(((currentPose[it.first.first.position]- number2digits)/ currentPose[it.first.first.position]))
 
+//            frame_error = error*100
+
             when {
                 error > 0.70 -> {
                     originalSizeCanvas.drawCircle(
@@ -129,7 +134,7 @@ object VisualizationUtils {
                     error  *= 100
                     error = String.format("%.2f", error).toDouble()
                     //originalSizeCanvas.drawText("<: $error %",(pointA.x+10f),(pointA.y+10f),pText)
-                    totalError += error
+                    poseError += error
                     originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
                 }
                 error > 0.15 -> {
@@ -142,7 +147,7 @@ object VisualizationUtils {
                     error  *= 100
                     error = String.format("%.2f", error).toDouble()
                     //originalSizeCanvas.drawText("<: $error %",(pointA.x+10f),(pointA.y+10f),pText)
-                    totalError += error
+                    poseError += error
                 }
                 else -> {
                     originalSizeCanvas.drawCircle(
@@ -154,8 +159,13 @@ object VisualizationUtils {
             }
         }
 
-        var totalPercentError = totalError/8
-        if (totalError == 0.0){
+//        fun geterror-> int()
+//        {
+//            return frame_error
+//        }
+
+        totalPercentError = poseError/8
+        if (poseError == 0.0){
             totalPercentError = 0.0
         }
         pText.textSize = 30f
@@ -173,5 +183,8 @@ object VisualizationUtils {
         }
         */
         return output
+    }
+    fun getTotalPoseError(): Double{
+        return totalPercentError
     }
 }

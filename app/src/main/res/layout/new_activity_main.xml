@@ -21,6 +21,17 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
+                <!--                <ImageView-->
+<!--                    android:id="@+id/imageView15"-->
+<!--                    android:layout_width="304dp"-->
+<!--                    android:layout_height="358dp"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintHorizontal_bias="0.925"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:srcCompat="@drawable/images" />-->
+
                 <VideoView
                     android:id="@+id/videoView"
                     android:layout_width="414dp"
@@ -28,10 +39,10 @@
                     android:layout_marginTop="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_bias="0.008"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <SurfaceView
                     android:id="@+id/surfaceView3"
@@ -43,15 +54,10 @@
                     android:layout_marginBottom="24dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.485"
                     app:layout_constraintStart_toEndOf="@+id/videoView"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <include
-                    layout="@layout/bottom_sheet_layout"
-                    android:layout_width="304dp"
-                    android:layout_height="35dp"
-                    tools:layout_editor_absoluteX="421dp"
-                    tools:layout_editor_absoluteY="373dp" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
