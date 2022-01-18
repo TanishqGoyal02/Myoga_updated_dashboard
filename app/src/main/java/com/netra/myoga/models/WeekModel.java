@@ -33,6 +33,7 @@ public class WeekModel implements Serializable {
         this.poses = poses;
         Set<String> names = poses.keySet();
         for (String s: names) {
+            Log.i("Sequence", "Exercise sequence"+s);
             this.dailyCompletion.put(s, false);
         }
         for(int i = 0; i < 7; i++) {

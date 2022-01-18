@@ -158,6 +158,8 @@ public class WeeklyActivity extends AppCompatActivity {
                 tWeek.setCompletion(chooseExercise(requestCode).getExercise());
             }
             callPose(requestCode+1);
+//            callPose(1);
+
         }
         else {
             callComplete();

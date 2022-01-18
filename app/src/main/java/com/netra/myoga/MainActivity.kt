@@ -28,10 +28,6 @@ import android.media.ImageReader
 import android.os.*
 import android.util.Log
 import android.util.Size
-import android.view.SurfaceHolder
-import android.view.SurfaceView
-import android.view.View
-import android.view.WindowManager
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -45,6 +41,13 @@ import org.tensorflow.lite.examples.poseestimation.ml.MoveNet
 import org.tensorflow.lite.examples.poseestimation.ml.PoseDetector
 import org.tensorflow.lite.examples.poseestimation.ml.PoseNet
 import org.tensorflow.lite.examples.poseestimation.data.Device
+import android.app.Activity
+import android.hardware.Camera.CameraInfo
+import android.view.*
+import androidx.core.graphics.withRotation
+
+import android.graphics.Point
+
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -53,6 +56,27 @@ class MainActivity : AppCompatActivity() {
         private const val FRAGMENT_DIALOG = "dialog"
         private const val TAG = "PoseEstimation"
     }
+
+
+
+
+
+ /*   val display = windowManager.defaultDisplay
+
+    // declare and initialize a point
+    val size = Point()
+
+    // store the points related details from the
+    // display variable in the size variable
+    display.getSize(size)
+
+    // store the point information in integer
+    // variables width and height
+    // where .x extracts width pixels and
+    // .y extracts height pixels
+    val width = size.x
+    val height = size.y*/
+
 
     /** A [SurfaceView] for camera preview.   */
     private lateinit var surfaceView: SurfaceView
@@ -113,6 +137,7 @@ class MainActivity : AppCompatActivity() {
     private val stateCallback = object : CameraDevice.StateCallback() {
         override fun onOpened(camera: CameraDevice) {
             this@MainActivity.cameraDevice = camera
+
             createCameraPreviewSession()
         }
 
@@ -125,6 +150,8 @@ class MainActivity : AppCompatActivity() {
             onDisconnected(camera)
         }
     }
+
+
 
     private val requestPermissionLauncher =
         registerForActivityResult(
@@ -158,7 +185,7 @@ class MainActivity : AppCompatActivity() {
 
             // Create rotated version for portrait display
             val rotateMatrix = Matrix()
-            rotateMatrix.postRotate(90.0f)
+            rotateMatrix.postRotate(270.0f)
 
             val rotatedBitmap = Bitmap.createBitmap(
                 imageBitmap!!, 0, 0, previewWidth, previewHeight,
@@ -338,10 +365,14 @@ class MainActivity : AppCompatActivity() {
         val manager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
         try {
             for (cameraId in manager.cameraIdList) {
-                val characteristics = manager.getCameraCharacteristics(cameraId)
+                val characteristics = manager.getCameraCharacteristics(cameraId);
+                var orientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
+                orientation = 180;
+
 
                 // We don't use a front facing camera in this sample.
                 val cameraDirection = characteristics.get(CameraCharacteristics.LENS_FACING)
+
                 if (cameraDirection != null &&
                     cameraDirection == CameraCharacteristics.LENS_FACING_FRONT
                 ) {
@@ -485,7 +516,6 @@ class MainActivity : AppCompatActivity() {
         }
         val right: Int = left + screenWidth
         val bottom: Int = top + screenHeight
-
         canvas.drawBitmap(
             outputBitmap, Rect(0, 0, outputBitmap.width, outputBitmap.height),
             Rect(left, top, right, bottom), Paint()

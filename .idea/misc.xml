@@ -19,12 +19,15 @@
         <entry key="app/src/main/res/layout/bottom_sheet_layout.xml" value="0.18659420289855072" />
         <entry key="app/src/main/res/layout/dashboard.xml" value="0.335" />
         <entry key="app/src/main/res/layout/dashboard_tani.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/improved_das_tani.xml" value="0.17253521126760563" />
+        <entry key="app/src/main/res/layout/improved_das_tani.xml" value="0.28640467025063676" />
         <entry key="app/src/main/res/layout/level1_homepage.xml" value="0.19157608695652173" />
+        <entry key="app/src/main/res/layout/level2_homepage.xml" value="0.1838768115942029" />
         <entry key="app/src/main/res/layout/level4_homepage.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/logo_page.xml" value="0.30570652173913043" />
+        <entry key="app/src/main/res/layout/new_activity_main.xml" value="0.2228920534962726" />
         <entry key="app/src/main/res/layout/newdashboard.xml" value="0.28381933490576455" />
         <entry key="app/src/main/res/layout/posingscreen.xml" value="0.19655797101449277" />
+        <entry key="app/src/main/res/layout/posingscreenalpha.xml" value="0.1838768115942029" />
         <entry key="app/src/main/res/layout/register_page1.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/register_page2.xml" value="0.1933876811594203" />
         <entry key="app/src/main/res/layout/register_page3.xml" value="0.1933876811594203" />

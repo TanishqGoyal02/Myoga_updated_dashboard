@@ -10,10 +10,10 @@ import kotlin.math.*
 
 object VisualizationUtils {
     /** Radius of circle used to draw keypoints.  */
-    private const val CIRCLE_RADIUS = 6f
+    private const val CIRCLE_RADIUS = 10f
 
     /** Width of line used to connected two keypoints.  */
-    private const val LINE_WIDTH = 4f
+    private const val LINE_WIDTH = 10f
 
     /** Pair of keypoints to draw lines between.  */
     private val bodyJoints = listOf(
@@ -75,6 +75,16 @@ object VisualizationUtils {
             color = Color.RED
             style = Paint.Style.FILL
         }
+        val paintCircleGreen = Paint().apply {
+            strokeWidth = CIRCLE_RADIUS
+            color = Color.GREEN
+            style = Paint.Style.FILL
+        }
+        val paintCircleYellow = Paint().apply {
+            strokeWidth = CIRCLE_RADIUS
+            color = Color.YELLOW
+            style = Paint.Style.FILL
+        }
         val paintLine = Paint().apply {
             strokeWidth = LINE_WIDTH
             color = Color.RED
@@ -85,11 +95,6 @@ object VisualizationUtils {
         val output = input.copy(Bitmap.Config.ARGB_8888,true)
         val originalSizeCanvas = Canvas(output)
 
-        bodyJoints.forEach {
-            val pointA = person.keyPoints[it.first.position].coordinate
-            val pointB = person.keyPoints[it.second.position].coordinate
-            originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
-        }
         bodyAngles.forEach{
             val pointA = person.keyPoints[it.first.first.position].coordinate
             val pointB = person.keyPoints[it.first.second.position].coordinate
@@ -113,12 +118,39 @@ object VisualizationUtils {
             angles[it.first.first.position] = number2digits
             var error = abs(((currentPose[it.first.first.position]- number2digits)/ currentPose[it.first.first.position]))
 
-            if (error > 0.15){
-                pText.textSize = 20f
-                error  *= 100
-                error = String.format("%.2f", error).toDouble()
-                originalSizeCanvas.drawText("<: $error %",(pointA.x+10f),(pointA.y+10f),pText)
-                totalError += error
+            when {
+                error > 0.70 -> {
+                    originalSizeCanvas.drawCircle(
+                        pointA.x,
+                        pointA.y,
+                        CIRCLE_RADIUS,
+                        paintCircle)
+                    pText.textSize = 20f
+                    error  *= 100
+                    error = String.format("%.2f", error).toDouble()
+                    //originalSizeCanvas.drawText("<: $error %",(pointA.x+10f),(pointA.y+10f),pText)
+                    totalError += error
+                    originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
+                }
+                error > 0.15 -> {
+                    originalSizeCanvas.drawCircle(
+                        pointA.x,
+                        pointA.y,
+                        CIRCLE_RADIUS,
+                        paintCircleYellow)
+                    pText.textSize = 20f
+                    error  *= 100
+                    error = String.format("%.2f", error).toDouble()
+                    //originalSizeCanvas.drawText("<: $error %",(pointA.x+10f),(pointA.y+10f),pText)
+                    totalError += error
+                }
+                else -> {
+                    originalSizeCanvas.drawCircle(
+                        pointA.x,
+                        pointA.y,
+                        CIRCLE_RADIUS,
+                        paintCircleGreen)
+                }
             }
         }
 
@@ -130,7 +162,7 @@ object VisualizationUtils {
         totalPercentError = String.format("%.2f", totalPercentError).toDouble()
         originalSizeCanvas.drawText("Total Error: $totalPercentError %",(130.0f),(30.0f),pText)
         //println("<" + angles[7] + ", " + angles[8] + ", " + angles[5] + ", " + angles[6] + ", " + angles[11] + ", " + angles[12] + ", " + angles[13] + ", " + angles[14] + ">")
-
+        /*
         person.keyPoints.forEach { point ->
             originalSizeCanvas.drawCircle(
                 point.coordinate.x,
@@ -139,6 +171,7 @@ object VisualizationUtils {
                 paintCircle
             )
         }
+        */
         return output
     }
 }
