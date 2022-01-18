@@ -44,7 +44,7 @@
         <activity android:name="PoseControlFlow"/>
         <activity android:name=".CompletionActivity"/>
         <activity android:name=".SOSActivity"/>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:screenOrientation="landscape"/>
         <activity android:name=".newDashboard_tani"/>
 
         <!--meta-data

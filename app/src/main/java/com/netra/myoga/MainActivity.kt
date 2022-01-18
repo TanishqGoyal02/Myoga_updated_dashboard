@@ -47,6 +47,7 @@ import android.view.*
 import androidx.core.graphics.withRotation
 
 import android.graphics.Point
+import android.net.Uri
 import org.tensorflow.lite.examples.poseestimation.VisualizationUtils
 import org.tensorflow.lite.examples.poseestimation.VisualizationUtils.getTotalPoseError
 
@@ -79,7 +80,9 @@ class MainActivity : AppCompatActivity() {
     val width = size.x
     val height = size.y*/
 
+    var imageView: ImageView? = null
 
+    var videoView : VideoView? = null
     /** A [SurfaceView] for camera preview.   */
     private lateinit var surfaceView: SurfaceView
 
@@ -228,6 +231,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 //        setContentView(R.layout.new_activity_main)
+
         // keep screen on while app is running
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
@@ -238,9 +242,16 @@ class MainActivity : AppCompatActivity() {
         spnModel = findViewById(R.id.spnModel)
         spnDevice = findViewById(R.id.spnDevice)
         surfaceView = findViewById(R.id.surfaceView)
+        imageView = findViewById<View>(R.id.imageView16) as ImageView?
+
         surfaceHolder = surfaceView.holder
         initSpinner()
         requestPermission()
+
+        videoView = findViewById<View>(R.id.videoView2) as VideoView?
+        videoView!!.setVideoURI(Uri.parse("android.resource://"+packageName+"/"+R.raw.perfectplank))
+        videoView!!.requestFocus()
+       videoView!!.start()
     }
 
 
@@ -495,8 +506,11 @@ class MainActivity : AppCompatActivity() {
             if (score > minConfidence) {
                 outputBitmap = drawBodyKeypoints(bitmap, person)
                 var poseError = getTotalPoseError()
-                if (poseError > 0.3){
-
+                if (poseError > 0.8){
+                    imageView!!.setBackgroundColor(Color.rgb(100, 0, 0))
+                }
+                else{
+                    imageView!!.setBackgroundColor(Color.rgb(0, 0, 100))
                 }
             }
         }
@@ -513,8 +527,10 @@ class MainActivity : AppCompatActivity() {
             val ratio = outputBitmap.height.toFloat() / outputBitmap.width
             screenWidth = canvas.width
             left = 0
-            screenHeight = (canvas.width * ratio).toInt()
-            top = (canvas.height - screenHeight) / 2
+            screenHeight = canvas.height
+//            screenHeight = (canvas.width * ratio).toInt()
+//            top = (canvas.height - screenHeight) / 2
+            top = 0
         } else {
             val ratio = outputBitmap.width.toFloat() / outputBitmap.height
             screenHeight = canvas.height
