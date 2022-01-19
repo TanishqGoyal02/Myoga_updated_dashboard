@@ -71,6 +71,7 @@ object VisualizationUtils {
 
 
     fun drawBodyKeypoints(input: Bitmap, person: Person): Bitmap {
+        poseError = 0.0;
          val pText = Paint()
         pText.color = Color.RED
         val paintCircle = Paint().apply {
