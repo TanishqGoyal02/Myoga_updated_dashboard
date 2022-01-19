@@ -50,6 +50,8 @@ import android.graphics.Point
 import android.net.Uri
 import org.tensorflow.lite.examples.poseestimation.VisualizationUtils
 import org.tensorflow.lite.examples.poseestimation.VisualizationUtils.getTotalPoseError
+import java.util.*
+import kotlin.concurrent.schedule
 
 
 class MainActivity : AppCompatActivity() {
@@ -508,9 +510,12 @@ class MainActivity : AppCompatActivity() {
                 var poseError = getTotalPoseError()
                 if (poseError > 0.8){
                     imageView!!.setBackgroundColor(Color.rgb(100, 0, 0))
+//                    Timer().schedule(6000) {
+//
+//                    }
                 }
                 else{
-                    imageView!!.setBackgroundColor(Color.rgb(0, 0, 100))
+                    imageView!!.setBackgroundColor(Color.rgb(0, 100, 0))
                 }
             }
         }
