@@ -508,14 +508,15 @@ class MainActivity : AppCompatActivity() {
             if (score > minConfidence) {
                 outputBitmap = drawBodyKeypoints(bitmap, person)
                 var poseError = getTotalPoseError()
-                if (poseError > 70){
-                    imageView!!.setBackgroundColor(Color.rgb(100, 0, 0))
+                if (poseError <10){
+                    imageView!!.setBackgroundColor(Color.rgb(0, 100, 0))
 //                    Timer().schedule(6000) {
 //
 //                    }
                 }
                 else{
-                    imageView!!.setBackgroundColor(Color.rgb(0, 100, 0))
+
+                    imageView!!.setBackgroundColor(Color.rgb(100, 0, 0))
                 }
             }
         }

@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import org.tensorflow.lite.examples.poseestimation.data.BodyPart
+import org.tensorflow.lite.examples.poseestimation.data.KeyPoint
 import org.tensorflow.lite.examples.poseestimation.data.Person
 import kotlin.math.*
 
@@ -14,7 +15,7 @@ object VisualizationUtils {
     private const val CIRCLE_RADIUS = 10f
 
     /** Width of line used to connected two keypoints.  */
-    private const val LINE_WIDTH = 10f
+    private const val LINE_WIDTH = 5f
     /** Pair of keypoints to draw lines between.  */
     private val bodyJoints = listOf(
         Pair(BodyPart.NOSE, BodyPart.LEFT_EYE),
@@ -94,6 +95,12 @@ object VisualizationUtils {
             style = Paint.Style.FILL
         }
 
+        val paintCircleBlack = Paint().apply {
+            strokeWidth = CIRCLE_RADIUS
+            color = Color.BLACK
+            style = Paint.Style.STROKE
+        }
+
 
         val output = input.copy(Bitmap.Config.ARGB_8888,true)
         val originalSizeCanvas = Canvas(output)
@@ -123,6 +130,7 @@ object VisualizationUtils {
 
 //            frame_error = error*100
 
+
             when {
                 error > 0.70 -> {
                     originalSizeCanvas.drawCircle(
@@ -137,6 +145,9 @@ object VisualizationUtils {
                     poseError += error
 
                     originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
+
+
+
 
                 }
                 error > 0.15 -> {
