@@ -65,10 +65,9 @@ object VisualizationUtils {
     private val perfectPoseDownwardDog = arrayOf(0.0,0.0,0.0,0.0,0.0,170.0,170.0,170.0,170.0,170.0,170.0,90.0,90.0,175.0,175.0)
     private val perfectPosePlank = arrayOf(0.0,0.0,0.0,0.0,0.0,60.0,60.0,170.0,170.0,0.0,0.0,170.0,180.0,175.0,175.0)
 
-    private var currentPose = perfectPosePlank
+    private var currentPose = perfectPoseWarriorRight
 
     // Draw line and point indicate body pose
-
 
     fun drawBodyKeypoints(input: Bitmap, person: Person): Bitmap {
         poseError = 0.0;
@@ -136,7 +135,9 @@ object VisualizationUtils {
                     error = String.format("%.2f", error).toDouble()
                     //originalSizeCanvas.drawText("<: $error %",(pointA.x+10f),(pointA.y+10f),pText)
                     poseError += error
+
                     originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
+
                 }
                 error > 0.15 -> {
                     originalSizeCanvas.drawCircle(
