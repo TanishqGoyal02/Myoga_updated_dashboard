@@ -10,7 +10,7 @@
         <entry key="app/src/main/res/drawable/logopage_background.xml" value="0.2611111111111111" />
         <entry key="app/src/main/res/drawable/rounded_edge.xml" value="0.30666666666666664" />
         <entry key="app/src/main/res/font/corben.xml" value="0.34010416666666665" />
-        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.1408927168401501" />
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_asana.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21152726014814" />
         <entry key="app/src/main/res/layout/activity_user_detail.xml" value="0.15070921985815602" />
@@ -27,6 +27,7 @@
         <entry key="app/src/main/res/layout/logo_page.xml" value="0.30570652173913043" />
         <entry key="app/src/main/res/layout/new_activity_main.xml" value="0.15530481129893567" />
         <entry key="app/src/main/res/layout/newdashboard.xml" value="0.28381933490576455" />
+        <entry key="app/src/main/res/layout/posetemationerrorwindow.xml" value="0.1" />
         <entry key="app/src/main/res/layout/posingscreen.xml" value="0.19655797101449277" />
         <entry key="app/src/main/res/layout/posingscreenalpha.xml" value="0.1838768115942029" />
         <entry key="app/src/main/res/layout/register_page1.xml" value="0.19157608695652173" />
