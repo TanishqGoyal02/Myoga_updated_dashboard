@@ -67,24 +67,24 @@ public class SOSActivity extends AppCompatActivity {
         week = getIntent().getIntExtra("Week", 5);
         day = getIntent().getIntExtra("Day", 1);
         //updateWeek(week);
-        callPose(1);
+//        callPose(1);
 
     }
 
-    public void callPose(int poseNum) {
-        Log.i("TEST", "Going into Screen for Pose " + poseNum);
-        Intent intent = new Intent(SOSActivity.this, PoseCount.class);
-        Log.i("ERROR", "Is this where its breaking?");
-        //intent.putExtra("WeekModel", chooseWeeklyModel());
-        Exercises temp = chooseExercise(poseNum);
-        Log.i("NAME", temp.getExercise());
-        intent.putExtra("ExName", temp.getExercise());
-        Log.i("Exerices", temp.getExercise());
-        intent.putExtra("ExUrl", temp.getUri());
-        intent.putExtra("Duration", temp.getDuration());
-        intent.putExtra("PoseNum", poseNum);
-        startActivityForResult(intent, poseNum);
-    }
+//    public void callPose(int poseNum) {
+//        Log.i("TEST", "Going into Screen for Pose " + poseNum);
+//        Intent intent = new Intent(SOSActivity.this, PoseCount.class);
+//        Log.i("ERROR", "Is this where its breaking?");
+//        //intent.putExtra("WeekModel", chooseWeeklyModel());
+//        Exercises temp = chooseExercise(poseNum);
+//        Log.i("NAME", temp.getExercise());
+//        intent.putExtra("ExName", temp.getExercise());
+//        Log.i("Exerices", temp.getExercise());
+//        intent.putExtra("ExUrl", temp.getUri());
+//        intent.putExtra("Duration", temp.getDuration());
+//        intent.putExtra("PoseNum", poseNum);
+//        startActivityForResult(intent, poseNum);
+//    }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -93,7 +93,7 @@ public class SOSActivity extends AppCompatActivity {
                 /*WeekModel tWeek = chooseWeeklyModel();
                 tWeek.setCompletion(chooseExercise(requestCode).getExercise());*/
             }
-            callPose(requestCode+1);
+//            callPose(requestCode+1);
         }
         else {
             Intent intent = new Intent(SOSActivity.this, DashboardActivity.class);
@@ -113,7 +113,6 @@ public class SOSActivity extends AppCompatActivity {
                 return poses.get("Bhramari");
             case 5:
                 return poses.get("Cool Down");
-
         }
         return poses.get("Cool Down");
     }

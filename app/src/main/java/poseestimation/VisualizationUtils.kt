@@ -128,6 +128,38 @@ object VisualizationUtils {
             angles[it.first.first.position] = number2digits
             var error = abs(((currentPose[it.first.first.position]- number2digits)/ currentPose[it.first.first.position]))
 
+
+//            if (number2digits != currentPose[it.first.first.position])
+//            {
+//                var x1= 0.0
+//                var y1 =0.0
+//                val pointF = listOf(x1,y1)
+//                var angle2 : Double = 0.0
+//                while (angle2 != currentPose[it.first.first.position]) {
+//                    val vec3 =Pair((pointA.x-pointF.elementAt(0)), (pointA.y-pointF.elementAt(1)))
+//                    val vec4 = Pair((pointC.x - pointF.elementAt(0)), (pointC.y - pointF.elementAt(1)))
+//
+//                    val numerator_corect = (vec.first*vec2.first) + (vec.second*vec2.second)
+//                    //vector a x coordinate * vector b x-coordinate + vector a y-coordinate * vector b y-coordinate
+//                    val denominator2 = sqrt((vec3.first*vec3.first)+(vec3.second*vec3.second))
+//                    val denominator3 = sqrt((vec4.first*vec4.first)+(vec4.second*vec4.second))
+//                    //magnitude = root(x^2 + y^2)
+//                    val denominator_coorect = denominator1*denominator2
+//                    // multiply magnitude of vector a by b
+//                    val angle = Math.toDegrees((acos(numerator_corect/denominator_coorect)).toDouble())
+//                    //find arccos of numerator/denominator and convert to degrees
+//                    angle2 = 180.0 - String.format("%.2f", angle).toDouble()
+//                    x1+=1.0
+//                    y1+=1.0
+////                }
+//                originalSizeCanvas.drawCircle(
+//                    pointF.elementAt(0).toFloat(),
+//                    pointF.elementAt(1).toFloat(),
+//                    CIRCLE_RADIUS,
+//                    paintCircleBlack)
+//
+//            }
+
 //            frame_error = error*100
 
 

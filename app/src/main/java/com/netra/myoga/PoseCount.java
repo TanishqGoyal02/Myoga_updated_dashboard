@@ -64,11 +64,11 @@ public class PoseCount extends YouTubeBaseActivity {
 
 
         //button will be used to skip excercise
-        finPose.setOnClickListener(new View.OnClickListener() {
+        finPose.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Log.i("TEST", "Skipping to next exercise");
-                setResult(0);
+//                setResult(0);
                 kill_activity();
             }
         });
@@ -89,6 +89,7 @@ public class PoseCount extends YouTubeBaseActivity {
                     public void onInitializationSuccess(com.google.android.youtube.player.YouTubePlayer.Provider provider, com.google.android.youtube.player.YouTubePlayer youTubePlayer, boolean b) {
                         youTubePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.MINIMAL);
                         youTubePlayer.loadVideo(exerciseUrl); //kUgA8VCD48E
+                        Log.i("Excercise: ", exerciseName);
                         youTubePlayer.play();
                     }
 
@@ -130,7 +131,6 @@ public class PoseCount extends YouTubeBaseActivity {
 
     @Override
     public void onBackPressed() {
-
         if (isPressed){
 
             /*finishAffinity();

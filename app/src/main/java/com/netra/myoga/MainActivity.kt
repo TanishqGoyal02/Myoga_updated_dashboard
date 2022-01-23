@@ -42,7 +42,6 @@ import org.tensorflow.lite.examples.poseestimation.ml.PoseDetector
 import org.tensorflow.lite.examples.poseestimation.ml.PoseNet
 import org.tensorflow.lite.examples.poseestimation.data.Device
 import android.app.Activity
-import android.hardware.Camera.CameraInfo
 import android.view.*
 import androidx.core.graphics.withRotation
 
@@ -83,7 +82,7 @@ class MainActivity : AppCompatActivity() {
     val height = size.y*/
 
     var imageView: ImageView? = null
-
+    var stopsign:ImageView? = null
     var videoView : VideoView? = null
     /** A [SurfaceView] for camera preview.   */
     private lateinit var surfaceView: SurfaceView
@@ -245,6 +244,7 @@ class MainActivity : AppCompatActivity() {
         spnDevice = findViewById(R.id.spnDevice)
         surfaceView = findViewById(R.id.surfaceView)
         imageView = findViewById<View>(R.id.imageView16) as ImageView?
+//        stopsign = findViewById<View>(R.id.stopsign) as ImageView?
 
         surfaceHolder = surfaceView.holder
         initSpinner()
@@ -507,17 +507,18 @@ class MainActivity : AppCompatActivity() {
             score = person.score
             if (score > minConfidence) {
                 outputBitmap = drawBodyKeypoints(bitmap, person)
+
+//                if(score > 0.4) {
+//                   stopsign!!.setImageDrawable(null)
+//                }
                 var poseError = getTotalPoseError()
-                if (poseError <10){
+                if (poseError < 10) {
                     imageView!!.setBackgroundColor(Color.rgb(0, 100, 0))
-//                    Timer().schedule(6000) {
-//
-//                    }
-                }
-                else{
+                } else {
 
                     imageView!!.setBackgroundColor(Color.rgb(100, 0, 0))
                 }
+
             }
         }
 

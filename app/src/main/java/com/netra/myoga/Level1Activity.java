@@ -129,6 +129,7 @@ public class Level1Activity extends AppCompatActivity {
         day1B.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                WeeklyActivity.posenum = 0;
 
                 Log.i("TEST", "Level 1 button clicked");
                 Intent intent = new Intent(Level1Activity.this, WeeklyActivity.class);
@@ -143,6 +144,8 @@ public class Level1Activity extends AppCompatActivity {
         day2B.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                WeeklyActivity.posenum = 0;
+
 
                 Log.i("TEST", "Level 1 button clicked");
                 Intent intent = new Intent(Level1Activity.this, WeeklyActivity.class);
@@ -157,6 +160,7 @@ public class Level1Activity extends AppCompatActivity {
         day3B.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                WeeklyActivity.posenum = 0;
 
                 Log.i("TEST", "Level 1 button clicked");
                 Intent intent = new Intent(Level1Activity.this, WeeklyActivity.class);
@@ -171,6 +175,7 @@ public class Level1Activity extends AppCompatActivity {
         day4B.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                WeeklyActivity.posenum = 0;
 
                 Log.i("TEST", "Level 1 button clicked");
                 Intent intent = new Intent(Level1Activity.this, WeeklyActivity.class);
@@ -185,6 +190,7 @@ public class Level1Activity extends AppCompatActivity {
         day5B.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                WeeklyActivity.posenum = 0;
 
                 Log.i("TEST", "Level 1 button clicked");
                 Intent intent = new Intent(Level1Activity.this, WeeklyActivity.class);
@@ -199,6 +205,7 @@ public class Level1Activity extends AppCompatActivity {
         day6B.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                WeeklyActivity.posenum = 0;
 
                 Log.i("TEST", "Level 1 button clicked");
                 Intent intent = new Intent(Level1Activity.this, WeeklyActivity.class);
@@ -213,6 +220,7 @@ public class Level1Activity extends AppCompatActivity {
         day7B.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                WeeklyActivity.posenum = 0;
 
                 Log.i("TEST", "Level 1 button clicked");
                 Intent intent = new Intent(Level1Activity.this, WeeklyActivity.class);

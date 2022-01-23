@@ -30,6 +30,7 @@ public class WeeklyActivity extends AppCompatActivity {
     private int week, day;
     private String api_key = "AIzaSyC6I5inDAdAlH9j2_OOER2cmCGAew79XN4";
     private double [] currentProgress = new double[10];
+    public static int posenum = 0;
 
 
     @Override
@@ -78,9 +79,14 @@ public class WeeklyActivity extends AppCompatActivity {
         week = getIntent().getIntExtra("Week", 1);
         day = getIntent().getIntExtra("Day", 1);
        updateWeek(week);
-        callPose(1);
 
 
+
+       if (posenum<1) {
+              posenum++;
+              callPose(posenum);
+
+         }
 //        switch (week) {
 //            case 1:
 //                playerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
@@ -121,7 +127,26 @@ public class WeeklyActivity extends AppCompatActivity {
 
     }
 
+//    public void callPoseFirst(int poseNum) {
+//        Log.i("weeklycallpose","weeklyposecontrolcallpose");
+//
+//        Log.i("TEST", "Going into Screen for Pose " + poseNum);
+//        Intent intent = new Intent(WeeklyActivity.this, PoseCount.class);
+//        Log.i("ERROR", "Is this where its breaking?");
+//        //intent.putExtra("WeekModel", chooseWeeklyModel());
+//        Exercises temp = chooseExercise(poseNum);
+//        Log.i("NAME", temp.getExercise());
+//        intent.putExtra("ExName", temp.getExercise());
+//        Log.i("Exerices", temp.getExercise());
+//        intent.putExtra("ExUrl", temp.getUri());
+//        intent.putExtra("Duration", temp.getDuration());
+//        intent.putExtra("PoseNum", poseNum);
+//        startActivityForResult(intent, poseNum);
+
+//    }
     public void callPose(int poseNum) {
+        Log.i("weeklycallpose","weeklyposecontrolcallpose");
+
         Log.i("TEST", "Going into Screen for Pose " + poseNum);
         Intent intent = new Intent(WeeklyActivity.this, PoseCount.class);
         Log.i("ERROR", "Is this where its breaking?");
@@ -151,20 +176,33 @@ public class WeeklyActivity extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode < 10) {
-            if(resultCode == 1) {
-                WeekModel tWeek = chooseWeeklyModel();
-                tWeek.setCompletion(chooseExercise(requestCode).getExercise());
-            }
-            callPose(requestCode+1);
-//            callPose(1);
 
-        }
-        else {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.i("requestcode", String.valueOf(requestCode));
+        Log.i("resultcode", String.valueOf(resultCode));
+
+//        if(requestCode < 10) {
+//            if(resultCode == 0) {
+//                WeekModel tWeek = chooseWeeklyModel();
+//                tWeek.setCompletion(chooseExercise(requestCode).getExercise());
+//            }
+//         callPose(requestCode+1);
+//    }
+            if (posenum < 10)
+            {
+                posenum++;
+                Log.i("psenum", String.valueOf(posenum));
+                callPose(posenum);
+
+            }
+//            }
+           else {
             callComplete();
         }
     }
+
+
 
     private WeekModel chooseWeeklyModel() {
         switch (week) {
@@ -184,10 +222,12 @@ public class WeeklyActivity extends AppCompatActivity {
     private Exercises chooseExercise(int poseNum) {
         switch (poseNum) {
             case 1:
+                Log.i("omchanting","njnj");
                 return poses.get("Om Chanting");
             case 2:
                 return poses.get("Yogic Breathing");
             case 3:
+                Log.i("headpress","njnj");
                 return poses.get("Head Press");
             case 4:
                 return poses.get("Scalp Massage");
@@ -201,8 +241,8 @@ public class WeeklyActivity extends AppCompatActivity {
                 return poses.get("Bhramari");
             case 9:
                 return poses.get("Naadi Shodan");
-            case 10:
-                return poses.get("Cool Down");
+//            case 10:
+//                return poses.get("Cool Down");
 
         }
         return poses.get("Cool Down");

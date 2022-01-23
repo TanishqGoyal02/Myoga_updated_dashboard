@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -73,9 +74,9 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/open_sans_light"
             android:layout_marginStart="27dp"
             android:layout_marginEnd="22dp"
+            android:fontFamily="@font/open_sans_light"
             android:text="Perfect Plank Pose"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="@+id/videoView2"
@@ -84,8 +85,22 @@
             app:layout_constraintStart_toStartOf="@+id/videoView2"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.072" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/stopsign"-->
+<!--            android:layout_width="262dp"-->
+<!--            android:layout_height="271dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/imageView16"-->
+<!--            app:layout_constraintHorizontal_bias="0.464"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.585"-->
+<!--            app:srcCompat="@drawable/stopsign" />-->
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include
         layout="@layout/bottom_sheet_layout" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

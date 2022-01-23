@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.30256410256410254" />
         <entry key="app/src/main/res/drawable-old/ic_launcher_background.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable/continue_button.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/drawable/countdown.xml" value="0.3260416666666667" />
@@ -10,14 +11,16 @@
         <entry key="app/src/main/res/drawable/logopage_background.xml" value="0.2611111111111111" />
         <entry key="app/src/main/res/drawable/rounded_edge.xml" value="0.30666666666666664" />
         <entry key="app/src/main/res/font/corben.xml" value="0.34010416666666665" />
-        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.335" />
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.16348591276209906" />
         <entry key="app/src/main/res/layout/activity_asana.xml" value="0.24635416666666668" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2391304347826087" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21152726014814" />
         <entry key="app/src/main/res/layout/activity_user_detail.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_user_detail_sample.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_user_profile.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_user_purpose.xml" value="0.19157608695652173" />
         <entry key="app/src/main/res/layout/bottom_sheet_layout.xml" value="0.18659420289855072" />
+        <entry key="app/src/main/res/layout/completionpage.xml" value="0.23233695652173914" />
         <entry key="app/src/main/res/layout/dashboard.xml" value="0.335" />
         <entry key="app/src/main/res/layout/dashboard_tani.xml" value="0.25" />
         <entry key="app/src/main/res/layout/improved_das_tani.xml" value="0.28640467025063676" />
@@ -31,10 +34,11 @@
         <entry key="app/src/main/res/layout/posingscreen.xml" value="0.19655797101449277" />
         <entry key="app/src/main/res/layout/posingscreenalpha.xml" value="0.1838768115942029" />
         <entry key="app/src/main/res/layout/register_page1.xml" value="0.19157608695652173" />
+        <entry key="app/src/main/res/layout/register_page1_sample.xml" value="0.2391304347826087" />
         <entry key="app/src/main/res/layout/register_page2.xml" value="0.1933876811594203" />
         <entry key="app/src/main/res/layout/register_page3.xml" value="0.1933876811594203" />
         <entry key="app/src/main/res/layout/register_page3_sample.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/sample.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/sample.xml" value="0.3523082609758435" />
         <entry key="app/src/main/res/layout/styles.xml" value="0.2617753623188406" />
         <entry key="app/src/main/res/layout/transition_page.xml" value="0.24635416666666668" />
       </map>

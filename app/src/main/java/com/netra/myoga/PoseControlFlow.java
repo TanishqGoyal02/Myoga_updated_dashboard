@@ -21,7 +21,7 @@ public class PoseControlFlow extends AppCompatActivity {
 
 
         //
-        callPose(1);
+//        callPose(1);
 
         //long endTime   = System.nanoTime();
         //totalTime = (endTime - startTime)/1_000_000_000;
@@ -29,15 +29,21 @@ public class PoseControlFlow extends AppCompatActivity {
 
 
     }
+// This is also not working
 
-    public void callPose(int poseNum) {
-        Log.i("TEST", "Going into Screen for Pose " + poseNum);
-        Intent intent = new Intent(PoseControlFlow.this, PoseCount.class);
-        intent.putExtra("SequenceNum",poseNum);
-        intent.putExtra("Day",day);
-        intent.putExtra("Week",week);
-        startActivityForResult(intent,poseNum);
-    }
+//    public void callPose(int poseNum) {
+//        Log.i("posecontron","posecontrolcallpose");
+//
+//        Log.i("TEST", "Going into Screen for Pose " + poseNum);
+//        Intent intent = new Intent(PoseControlFlow.this, PoseCount.class);
+//        intent.putExtra("SequenceNum",poseNum);
+//        intent.putExtra("Day",day);
+//        intent.putExtra("Week",week);
+//        startActivityForResult(intent,poseNum);
+//    }
+
+
+
 
 //    public void callComplete(long totalTime) {
 //        Log.i("TEST", "Going to Completion Screen");
@@ -48,17 +54,20 @@ public class PoseControlFlow extends AppCompatActivity {
 //        startActivity(comp);
 //    }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode < 10) {
-            callPose(requestCode+1);
-        }
-        else {
-            Log.i("DBUTTON", "Return to Main Page");
-            Intent intent = new Intent(PoseControlFlow.this, DashboardActivity.class);
-            startActivity(intent);
-        }
-    }
+
+//    This thing is not working
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if(requestCode < 10) {
+//            callPose(requestCode+1);
+//        }
+//        else {
+//            Log.i("DBUTTON", "Return to Main Page");
+//            Intent intent = new Intent(PoseControlFlow.this, DashboardActivity.class);
+//            startActivity(intent);
+//        }
+//    }
 
 }

@@ -49,6 +49,7 @@ public class DashboardActivity extends AppCompatActivity {
         week1_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                WeeklyActivity.posenum = 0;
 
                 Log.i("TEST", "Week 1 button clicked");
                 Intent intent = new Intent(DashboardActivity.this, Level1Activity.class);
@@ -61,6 +62,8 @@ public class DashboardActivity extends AppCompatActivity {
         week2_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                WeeklyActivity.posenum = 0;
+
 
                 Log.i("TEST", "Week 2 button clicked");
                 Intent intent = new Intent(DashboardActivity.this, Level1Activity.class);
@@ -72,6 +75,8 @@ public class DashboardActivity extends AppCompatActivity {
         week3_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                WeeklyActivity.posenum = 0;
+
 
                 Log.i("TEST", "Week 3 button clicked");
                 Intent intent = new Intent(DashboardActivity.this, Level1Activity.class);
@@ -84,6 +89,7 @@ public class DashboardActivity extends AppCompatActivity {
         week4_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                WeeklyActivity.posenum = 0;
 
                 Log.i("TEST", "Week 4 button clicked");
 
